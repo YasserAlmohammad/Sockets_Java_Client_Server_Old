@@ -1,0 +1,19 @@
+[PropertyInfo]
+borderLayout1,java.awt.BorderLayout,false,false, , ,false,<default>
+content,javax.swing.JTextArea,false,false, , ,false,<default>
+fileNamePanel,javax.swing.JPanel,false,false, , ,false,<default>
+filePathEdit,javax.swing.JTextField,false,false, , ,false,<default>
+flowLayout1,java.awt.FlowLayout,false,false, , ,false,<default>
+JButtonLoadFile,javax.swing.JButton,false,false, , ,false,<default>
+JLabel1,javax.swing.JLabel,false,false, , ,false,<default>
+JLabel2,javax.swing.JLabel,false,false, , ,false,<default>
+JTextField1,javax.swing.JTextField,false,false, , ,false,<default>
+northPanel,javax.swing.JPanel,false,false, , ,false,<default>
+serverNameEdit,javax.swing.JTextField,false,false, , ,false,<default>
+serverNamePanel,javax.swing.JPanel,false,false, , ,false,<default>
+statusBar,javax.swing.JLabel,false,false, , ,false,<default>
+[IconNames]
+
+
+
+
