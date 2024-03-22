@@ -1,0 +1,26 @@
+[PropertyInfo]
+borderLayout1,java.awt.BorderLayout,false,false, , ,false,<default>
+borderLayout2,java.awt.BorderLayout,false,false, , ,false,<default>
+button1,javax.swing.JButton,false,false, , ,false,<default>
+comments,String,false,false, , ,false,<default>
+copyright,String,false,false, , ,false,<default>
+flowLayout1,java.awt.FlowLayout,false,false, , ,false,<default>
+gridLayout1,java.awt.GridLayout,false,false, , ,false,<default>
+image1,javax.swing.ImageIcon,false,false, , ,false,<default>
+imageLabel,javax.swing.JLabel,false,false, , ,false,<default>
+insetsPanel1,javax.swing.JPanel,false,false, , ,false,<default>
+insetsPanel2,javax.swing.JPanel,false,false, , ,false,<default>
+insetsPanel3,javax.swing.JPanel,false,false, , ,false,<default>
+label1,javax.swing.JLabel,false,false, , ,false,<default>
+label2,javax.swing.JLabel,false,false, , ,false,<default>
+label3,javax.swing.JLabel,false,false, , ,false,<default>
+label4,javax.swing.JLabel,false,false, , ,false,<default>
+panel1,javax.swing.JPanel,false,false, , ,false,<default>
+panel2,javax.swing.JPanel,false,false, , ,false,<default>
+product,String,false,false, , ,false,<default>
+version,String,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

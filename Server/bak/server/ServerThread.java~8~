@@ -1,0 +1,25 @@
+package server;
+import java.io.*;
+import java.net.*;
+import javax.swing.*;
+
+public class ServerThread extends Thread{
+    ServerSocket server=null;
+    static boolean listen=true;
+    int portNumber=4000;
+    ServerThread(){
+        listen=true;
+        try{
+            server = new ServerSocket(portNumber);
+        }
+        catch(Exception ex){
+            listen=false;
+            JOptionPane.showMessageDialog(null,"couldn't create server that listens to posrt "+portNumber);
+        }
+    }
+    public void run(){
+        while(listen){
+            new ClientThread(server.accept()).start();
+        }
+    }
+}

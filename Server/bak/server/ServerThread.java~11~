@@ -1,0 +1,29 @@
+package server;
+import java.io.*;
+import java.net.*;
+import javax.swing.*;
+
+public class ServerThread extends Thread{
+    ServerSocket server=null;
+    static boolean listen=false;
+    int portNumber=4000;
+    ServerThread(){
+        listen=true;
+        try{
+            server = new ServerSocket(4000);
+        }
+        catch(Exception ex){
+            listen=false;
+            JOptionPane.showMessageDialog(null,"couldn't create server that listens to posrt "+portNumber);
+        }
+    }
+    public void run(){
+        try {
+        while(listen){
+            new ClientThread(server.accept()).start();
+        }
+        }catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"error happened while trying to accept incloming connections");
+        }
+    }
+}

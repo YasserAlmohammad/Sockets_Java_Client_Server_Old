@@ -1,0 +1,88 @@
+package server;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.border.TitledBorder;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+/**
+ * <p>Title: </p>
+ *
+ * <p>Description: </p>
+ *
+ * <p>Copyright: Copyright (c) 2006</p>
+ *
+ * <p>Company: </p>
+ *
+ * @author not attributable
+ * @version 1.0
+ */
+public class ServerFrame extends JFrame {
+    JPanel contentPane;
+    BorderLayout borderLayout1 = new BorderLayout();
+    JLabel statusBar = new JLabel();
+    JTextArea contentArea = new JTextArea();
+    TitledBorder titledBorder1 = new TitledBorder("");
+    JButton jButtonStartListen = new JButton();
+    JLabel statusText = new JLabel();
+    public ServerFrame() {
+        try {
+            setDefaultCloseOperation(EXIT_ON_CLOSE);
+            jbInit();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
+     * Component initialization.
+     *
+     * @throws java.lang.Exception
+     */
+    private void jbInit() throws Exception {
+        contentPane = (JPanel) getContentPane();
+        contentPane.setLayout(borderLayout1);
+        setSize(new Dimension(400, 300));
+        setTitle("server window");
+        statusBar.setText(" ");
+        contentArea.setBorder(BorderFactory.createEtchedBorder());
+        contentArea.setPreferredSize(new Dimension(70, 10));
+        contentArea.setText("");
+        contentArea.setLineWrap(false);
+        contentArea.setRows(10);
+        jButtonStartListen.setText("start listening");
+        jButtonStartListen.addActionListener(new
+                ServerFrame_jButtonStartListen_actionAdapter(this));
+        statusText.setPreferredSize(new Dimension(100, 20));
+        statusText.setText("");
+        contentPane.add(contentArea, java.awt.BorderLayout.NORTH);
+        contentPane.add(jButtonStartListen, java.awt.BorderLayout.CENTER);
+        contentPane.add(statusBar, java.awt.BorderLayout.WEST);
+        contentPane.add(statusText, java.awt.BorderLayout.SOUTH);
+    }
+
+    public void jButtonStartListen_actionPerformed(ActionEvent e) {
+        if(ServerThread.listen==false){
+            new ServerThread(this).start();
+        }
+   //     messageList.add("ffff",null);
+    }
+
+}
+
+
+class ServerFrame_jButtonStartListen_actionAdapter implements ActionListener {
+    private ServerFrame adaptee;
+    ServerFrame_jButtonStartListen_actionAdapter(ServerFrame adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        adaptee.jButtonStartListen_actionPerformed(e);
+    }
+}

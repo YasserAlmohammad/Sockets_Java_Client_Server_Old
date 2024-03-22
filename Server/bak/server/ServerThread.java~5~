@@ -1,0 +1,16 @@
+package server;
+import java.io.*;
+import java.net.*;
+
+public class ServerThread{
+    ServerSocket server=null;
+    boolean listen=true;
+    ServerThread(){
+
+    }
+    public void run(){
+        while(listen){
+
+        }
+    }
+}

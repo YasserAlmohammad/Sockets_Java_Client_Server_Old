@@ -1,0 +1,66 @@
+package server;
+
+import java.io.*;
+import java.net.*;
+import javax.swing.*;
+
+public class ClientThread extends Thread{
+    Socket socket=null;
+    PrintWriter out=null;
+    BufferedReader in=null;
+    ServerFrame par;
+    ClientThread(Socket socket,ServerFrame par){
+        this.socket=socket;
+        this.par=par;
+        try{
+            out = new PrintWriter(socket.getOutputStream(), true);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        }
+        catch(IOException ex){
+            JOptionPane.showMessageDialog(null,"couldn't create streams for client");
+        }
+    }
+
+    public void run(){
+        String str;
+        try{
+     //   while((str=in.readLine())!=null)
+          str=in.readLine();
+          out.println("fuck u");
+          out.flush();
+          JOptionPane.showMessageDialog(null,"file upload request: "+str);
+          //assuing text file for display in JTextArea
+          File file=new File(str);
+          if(!file.exists()){
+              par.statusText.setText("file "+str+" doesn't exists");
+              return;
+          }
+          BufferedReader fileReader=new BufferedReader(new FileReader(file));
+          String line;
+          int i=0;
+          par.contentArea.setText("");
+          while((line=fileReader.readLine())!=null){
+              //read from write to client and view it
+              par.contentArea.append(line);
+              par.contentArea.append("\n");
+              out.write(str);
+          }
+
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"error happend while reading from client");
+        }
+
+        try{
+            if (socket != null)
+                socket.close();
+            if (in != null)
+                in.close();
+            if (out != null)
+                out.close();
+        }
+        catch(Exception ex){
+
+        }
+    }
+}
